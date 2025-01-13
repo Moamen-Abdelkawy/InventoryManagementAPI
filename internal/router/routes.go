@@ -1,0 +1,24 @@
+package router
+
+import (
+	"github.com/gin-gonic/gin"
+	"github.com/<YourUsername>/InventoryManagementAPI/internal/handlers"
+	"github.com/<YourUsername>/InventoryManagementAPI/internal/middleware"
+)
+
+// SetupRoutes creates and configures the Gin engine with all routes and middleware.
+func SetupRoutes() *gin.Engine {
+	r := gin.Default()
+
+	// Apply rate limiting to every request
+	r.Use(middleware.RateLimitMiddleware)
+
+	// Inventory routes
+	r.GET("/inventory", handlers.GetAllItems)
+	r.GET("/inventory/:id", handlers.GetSingleItem)
+	r.POST("/inventory", handlers.CreateItem)
+	r.PUT("/inventory/:id", handlers.UpdateItem)
+	r.DELETE("/inventory/:id", handlers.DeleteItem)
+
+	return r
+}
