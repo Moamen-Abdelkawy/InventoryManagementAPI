@@ -5,10 +5,10 @@ import (
 	"strconv"
 	"strings"
 
+	"github.com/Moamen-Abdelkawy/InventoryManagementAPI/internal/database"
+	"github.com/Moamen-Abdelkawy/InventoryManagementAPI/internal/models"
 	"github.com/gin-gonic/gin"
 	"github.com/google/uuid"
-	"github.com/<YourUsername>/InventoryManagementAPI/internal/database"
-	"github.com/<YourUsername>/InventoryManagementAPI/internal/models"
 )
 
 // GetAllItems handles GET /inventory with optional pagination, filtering, and sorting.

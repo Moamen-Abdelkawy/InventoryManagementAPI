@@ -1,9 +1,9 @@
 package router
 
 import (
+	"github.com/Moamen-Abdelkawy/InventoryManagementAPI/internal/handlers"
+	"github.com/Moamen-Abdelkawy/InventoryManagementAPI/internal/middleware"
 	"github.com/gin-gonic/gin"
-	"github.com/<YourUsername>/InventoryManagementAPI/internal/handlers"
-	"github.com/<YourUsername>/InventoryManagementAPI/internal/middleware"
 )
 
 // SetupRoutes creates and configures the Gin engine with all routes and middleware.

@@ -4,8 +4,8 @@ import (
 	"log"
 	"os"
 
+	"github.com/Moamen-Abdelkawy/InventoryManagementAPI/internal/models"
 	"github.com/google/uuid"
-	"github.com/<YourUsername>/InventoryManagementAPI/internal/models"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
