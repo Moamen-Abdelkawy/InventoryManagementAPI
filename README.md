@@ -1,4 +1,4 @@
-# InventoryManagementAPI
+# **InventoryManagementAPI**
 
 A minimal Go application demonstrating an Inventory Management API with:
 - Gin web framework
@@ -9,7 +9,7 @@ A minimal Go application demonstrating an Inventory Management API with:
 
 ## Repository Structure
 
-```
+```plaintext
 InventoryManagementAPI/
 ├── cmd/
 │   └── server/
@@ -34,35 +34,75 @@ InventoryManagementAPI/
 ## Running Locally
 
 1. **Install Go 1.18+** and ensure your `$GOPATH` or modules are set up.
-2. **Clone this repo**:
+
+2. Clone this repo:
+
    ```bash
    git clone https://github.com/<YourUsername>/InventoryManagementAPI.git
    cd InventoryManagementAPI
    ```
-3. **Initialize dependencies**:
+
+3. Initialize dependencies:
+
    ```bash
    go mod tidy
    ```
-4. **Set your DSN** (optional; otherwise a default DSN is used in code):
+
+4. Set your DSN (optional; otherwise a default DSN is used in code):
+
    ```bash
    export DSN="postgres://postgres:postgres@localhost:5432/inventory?sslmode=disable"
    ```
-5. **Run**:
+
+5. Run:
+
    ```bash
    go run ./cmd/server/main.go
    ```
-6. **Test** the API at `http://localhost:8080`.
+
+   > **Note**: The server will keep running and listen on `http://localhost:8080` until stopped (e.g., via `Ctrl+C`).
 
 ## Creating a GitHub Codespace
 
 1. Push this code to a GitHub repository named `InventoryManagementAPI`.
+
 2. On GitHub, click the green "Code" button and select "Create codespace on main."
+
 3. In the Codespace, open a terminal and run:
+
    ```bash
    go mod tidy
    go run ./cmd/server/main.go
    ```
-4. Expose or forward port `8080` in your Codespace to access the running server from your browser.
+
+4. Forward port `8080` in your Codespace to access the running server from your browser.
+
+## Database Options in a Codespace
+
+1. **Docker-based Postgres**
+
+   ```bash
+   docker run -d --name postgres -p 5432:5432 \
+     -e POSTGRES_PASSWORD=postgres -e POSTGRES_USER=postgres postgres:15
+   export DSN="postgres://postgres:postgres@127.0.0.1:5432/inventory?sslmode=disable"
+   go run ./cmd/server/main.go
+   ```
+
+2. **Hosted Postgres (e.g., ElephantSQL)**
+
+   - Sign up for a free ElephantSQL instance.
+
+   - Copy the connection URL (DSN), then:
+
+     ```bash
+     export DSN="<YourElephantSQLConnectionString>"
+     go run ./cmd/server/main.go
+     ```
+
+## Troubleshooting
+
+- If you see `connection refused` errors, confirm that PostgreSQL is running (in Docker or a hosted provider).
+- If `go` commands fail, ensure Go is installed and that you’re in the repo root with `go.mod`.
 
 ## Contact
 
@@ -70,4 +110,4 @@ This repository is maintained by **Moamen Abdelkawy**. For questions, suggestion
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the [MIT License](https://chatgpt.com/c/LICENSE).
